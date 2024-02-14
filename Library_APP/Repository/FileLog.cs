@@ -15,7 +15,7 @@ namespace Library_APP
 
         public void Log(string message)
         {
-            File.AppendAllText(_filePath, $"[{DateTime.Now:HH:mm:ss dd.MM.yyyy}] - {message}\n");
+            File.AppendAllText(_filePath, $"[{DateTime.Now:HH:mm:ss dd.MM.yyyy}]{message}\n");
         }
     }
 }

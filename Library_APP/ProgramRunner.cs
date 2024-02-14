@@ -16,7 +16,7 @@ namespace Library_APP
         {
             BooksRepository bookRepository = new BooksRepository(_log);
             BookSort sortRepository = new BookSort(_log, bookRepository);
-            _log.Log("Программа запущена\n");
+            _log.Log("\nПрограмма запущена\n");
             Console.WriteLine("\tБИБЛИОТЕКА\n");
             Console.WriteLine("Меню функций:");
             Console.WriteLine("1. Вывод списка книг");
@@ -24,11 +24,11 @@ namespace Library_APP
             Console.WriteLine("3. Обновление книги");
             Console.WriteLine("4. Удаление книги");
             Console.WriteLine("5. Сортировка книг");
-            Console.Write("0. Закрыть программу");
+            Console.Write("0. Закрыть программу\n\n");
 
             while (true)
             {
-                Console.WriteLine("\n________________________________");
+                Console.WriteLine("________________________________");
                 Console.Write("Введите пункт меню для выбора: ");
                 string input = Console.ReadLine();
 
@@ -95,11 +95,11 @@ namespace Library_APP
                         break;
 
                     case "0":
-                        _log.Log("Программа завершена");
+                        _log.Log("\nПрограмма завершена");
                         return;
 
                     default:
-                        Console.WriteLine("Введен неверный пункт меню!");
+                        Console.WriteLine("Введен неверный пункт меню!\n");
                         break;
                 }
             }

@@ -36,23 +36,39 @@ namespace Library_APP
         //создание книги
         public void CreateBook()
         {
-            Console.Write("Введите название книги: ");
+            Console.Write("Введите название: ");
             string title = Console.ReadLine();
-            Console.Write("Введите автора книги: ");
+
+            while (string.IsNullOrEmpty(title))
+            {
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write("Введите название: ");
+                title = Console.ReadLine();
+            }
+
+            Console.Write("Введите автора: ");
             string author = Console.ReadLine();
-            Console.Write("Введите год публикации книги: ");
+
+            while (string.IsNullOrEmpty(author))
+            {
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write("Введите автора: ");
+                author = Console.ReadLine();
+            }
+
+            Console.Write("Введите год публикации: ");
             int pubYear;
 
             while (!int.TryParse(Console.ReadLine(), out pubYear) || pubYear <= 0)
             {
-                Console.Write("Год публикации должен быть положительным числом. Пожалуйста, введите снова: ");
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write("Введите год публикации: ");
             }
 
             int id = books.Count + 1;
             Book newBook = new Book { Id = id, Title = title, Author = author, PubYear = pubYear };
             books.Add(newBook);
-
-            string message = $"Добавлена новая книга: '{title}' (Автор: {author}, Год: {pubYear})";
+            string message = $"\nУспешно добавлена книга с ID {id}!\n";
             Console.WriteLine(message);
             _log.Log(message);
         }
@@ -60,25 +76,27 @@ namespace Library_APP
         //обновление книги
         public void UpdateBook()
         {
-            Console.Write("Введите ID книги, которую вы хотите обновить: ");
+            Console.Write("Введите ID: ");
             int id;
 
             while (!int.TryParse(Console.ReadLine(), out id) || id <= 0)
             {
-                Console.Write("Некорректный ввод. Пожалуйста, введите положительное целое число: ");
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write("Введите ID: ");
             }
 
             Book bookToUpdate = books.FirstOrDefault(book => book.Id == id);
 
             if (bookToUpdate == null)
             {
-                Console.WriteLine($"Книга с ID {id} не найдена.");
+                Console.WriteLine($"\nКнига не найдена!\n");
                 return;
             }
 
-            Console.WriteLine($"Текущая информация о книге:");
-            Console.WriteLine($"ID: {bookToUpdate.Id}, Название: {bookToUpdate.Title}, Автор: {bookToUpdate.Author}, Год публикации: {bookToUpdate.PubYear}");
-            Console.Write("Введите новое название книги (нажмите Enter, чтобы оставить без изменений): ");
+            Console.WriteLine($"\nОбновляемая книга:\n");
+            Console.WriteLine($"ID: {bookToUpdate.Id}\nНазвание: {bookToUpdate.Title}\nАвтор: {bookToUpdate.Author}\nГод публикации: {bookToUpdate.PubYear}\n");
+            Console.WriteLine("Чтобы оставить без изменений нажмите Enter!\n");
+            Console.Write("Введите название: ");
             string newTitle = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(newTitle))
@@ -86,7 +104,7 @@ namespace Library_APP
                 bookToUpdate.Title = newTitle;
             }
 
-            Console.Write("Введите нового автора книги (нажмите Enter, чтобы оставить без изменений): ");
+            Console.Write("Введите автора: ");
             string newAuthor = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(newAuthor))
@@ -94,24 +112,30 @@ namespace Library_APP
                 bookToUpdate.Author = newAuthor;
             }
 
-            Console.Write("Введите новый год публикации книги (нажмите Enter, чтобы оставить без изменений): ");
-            string pubYearInput = Console.ReadLine();
+            int pubYear;
 
-            if (!string.IsNullOrEmpty(pubYearInput))
+            while (true)
             {
-                int newPubYear;
+                Console.Write("Введите год публикации: ");
+                string input = Console.ReadLine();
 
-                if (int.TryParse(pubYearInput, out newPubYear) && newPubYear > 0)
+                if (string.IsNullOrEmpty(input))
                 {
-                    bookToUpdate.PubYear = newPubYear;
+                    break;
+                }
+
+                if (!int.TryParse(input, out pubYear) || pubYear <= 0)
+                {
+                    Console.WriteLine("Некорректный ввод!");
                 }
                 else
                 {
-                    Console.WriteLine("Неверный формат года публикации. Год должен быть положительным числом.");
+                    bookToUpdate.PubYear = pubYear;
+                    break;
                 }
             }
 
-            string message = $"Книга с ID {id} успешно обновлена.";
+            string message = $"\nУспешно обновлена книга с ID {bookToUpdate.Id}!\n";
             Console.WriteLine(message);
             _log.Log(message);
         }
@@ -119,25 +143,27 @@ namespace Library_APP
         //удаление книги
         public void DeleteBook()
         {
-            Console.Write("Введите ID книги, которую вы хотите удалить: ");
+            Console.Write("Введите ID: ");
             int idToDelete;
 
             while (!int.TryParse(Console.ReadLine(), out idToDelete) || idToDelete <= 0)
             {
-                Console.Write("Некорректный ввод. Пожалуйста, введите положительное целое число: ");
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write("Введите ID: ");
             }
 
             Book bookToDelete = books.FirstOrDefault(book => book.Id == idToDelete);
 
             if (bookToDelete == null)
             {
-                Console.WriteLine($"Книга с ID {idToDelete} не найдена.");
+                Console.WriteLine($"\nКнига не найдена!\n");
                 return;
             }
 
+            Console.WriteLine($"\nУдаляемая книга:\n");
+            Console.WriteLine($"ID: {bookToDelete.Id}\nНазвание: {bookToDelete.Title}\nАвтор: {bookToDelete.Author}\nГод публикации: {bookToDelete.PubYear}");
             books.Remove(bookToDelete);
-
-            string message = $"Книга с ID {idToDelete} успешно удалена.";
+            string message = $"\nУспешно удалена книга с ID {idToDelete}!\n";
             Console.WriteLine(message);
             _log.Log(message);
         }
