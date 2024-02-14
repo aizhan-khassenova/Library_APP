@@ -56,7 +56,7 @@ namespace Library_APP
 
                     case "5":
                         bool sorted = true;
-                        Console.WriteLine("\n\tСОРТИРОВКА КНИГ\n");
+                        Console.WriteLine("\n\n\n\tСОРТИРОВКА КНИГ\n");
                         Console.WriteLine("Выберите параметр:");
                         Console.WriteLine("1. ID");
                         Console.WriteLine("2. Название");
@@ -87,15 +87,17 @@ namespace Library_APP
                                     sorted = false;
                                     break;
                                 default:
-                                    Console.WriteLine("Введен неверный пункт меню!");
+                                    Console.WriteLine("Введен неверный пункт функции!\n");
                                     break;
                             }
                         }
 
+                        Console.WriteLine("");
+
                         break;
 
                     case "0":
-                        _log.Log("\nПрограмма завершена");
+                        _log.Log("\nПрограмма завершена\n");
                         return;
 
                     default:

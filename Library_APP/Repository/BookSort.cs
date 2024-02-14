@@ -19,7 +19,7 @@ namespace Library_APP
         {
             var books = _bookRepository.books;
             var sortedBooks = books.OrderBy(book => book.Id);
-            Console.WriteLine("Список книг (отсортированный по Id):");
+            Console.WriteLine("\nСписок книг отсортированный по Id:\n");
             ViewSortedBooks(sortedBooks);
         }
 
@@ -28,7 +28,7 @@ namespace Library_APP
         {
             var books = _bookRepository.books;
             var sortedBooks = books.OrderBy(book => book.Title);
-            Console.WriteLine("Список книг (отсортированный по названию):");
+            Console.WriteLine("\nСписок книг отсортированный по названию:\n");
             ViewSortedBooks(sortedBooks);
         }
 
@@ -37,7 +37,7 @@ namespace Library_APP
         {
             var books = _bookRepository.books;
             var sortedBooks = books.OrderBy(book => book.Author);
-            Console.WriteLine("Список книг (отсортированный по автору):");
+            Console.WriteLine("\nСписок книг отсортированный по автору:\n");
             ViewSortedBooks(sortedBooks);
         }
 
@@ -46,7 +46,7 @@ namespace Library_APP
         {
             var books = _bookRepository.books;
             var sortedBooks = books.OrderBy(book => book.PubYear);
-            Console.WriteLine("Список книг (отсортированный по году публикации):");
+            Console.WriteLine("\nСписок книг отсортированный по году публикации:\n");
             ViewSortedBooks(sortedBooks);
         }
 
