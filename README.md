@@ -34,3 +34,7 @@
 После запуска приложения, следуйте инструкциям в консоли для выполнения различных операций с библиотекой книг. 
 
 ---
+
+![](https://github.com/aizhan-khassenova/Library_APP/blob/master/1.png)
+![](https://github.com/aizhan-khassenova/Library_APP/blob/master/2.png)
+![](https://github.com/aizhan-khassenova/Library_APP/blob/master/3.png)
