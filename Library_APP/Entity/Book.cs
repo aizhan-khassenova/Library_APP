@@ -1,6 +1,6 @@
 ﻿namespace Library_APP
 {
-    //модель книги со свойствами
+    //класс книги со свойствами
     public class Book
     {
         public int Id { get; set; }

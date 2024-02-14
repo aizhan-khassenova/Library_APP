@@ -4,16 +4,15 @@ using System.Linq;
 
 namespace Library_APP
 {
-    //класс BooksRepository реализующий интерфейс IBook, содержит список книг и экземпляр интерфейса ILog для журналирования
     public class BooksRepository : IBook
     {
         private readonly ILog _log;
         public List<Book> books { get; set; }
 
-        //конструктор инициализирующий репозиторий книг начальным списком книг
         public BooksRepository(ILog log) {
             _log = log;
 
+            //начальный список книг
             books = new List<Book>()
             {
                 new Book { Id = 1, Title = "Властелин Колец", Author = "Дж. Р. Р. Толкин", PubYear = 1954},
@@ -23,7 +22,7 @@ namespace Library_APP
             };
         }
 
-        //метод выводящий в консоль информацию о каждой книге и возвращающий список книг
+        //вывод всех книг
         public List<Book> ReadBooks()
         {
             foreach (var book in books)
@@ -34,7 +33,7 @@ namespace Library_APP
             return books;
         }
 
-        //метод добавляющий новую книгу в репозиторий
+        //создание книги
         public void CreateBook()
         {
             Console.Write("Введите название книги: ");
@@ -58,7 +57,7 @@ namespace Library_APP
             _log.Log(message);
         }
 
-        //метод обновляющий информацию о книге в репозитории
+        //обновление книги
         public void UpdateBook()
         {
             Console.Write("Введите ID книги, которую вы хотите обновить: ");
@@ -117,7 +116,7 @@ namespace Library_APP
             _log.Log(message);
         }
 
-        //метод удаляющий книгу из репозитория
+        //удаление книги
         public void DeleteBook()
         {
             Console.Write("Введите ID книги, которую вы хотите удалить: ");

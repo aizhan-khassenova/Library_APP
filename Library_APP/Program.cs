@@ -7,14 +7,12 @@ namespace Library_APP
     {
         public static void Main(string[] args)
         {
-            //определение пути к каталогу, в котором запущена программа
+            //создание пути к файлу журнала log.txt
             string rootPath = AppDomain.CurrentDomain.BaseDirectory;
-            //создание полного пути к файлу журнала log.txt, комбинирующий rootPath и имя файла
             string logFilePath = Path.Combine(rootPath, "log.txt");
 
-            //создание экземпляра класса ProgramRunner, передавая ему путь к файлу журнала в качестве аргумента конструктора
+            //запуск приложения
             ProgramRunner runner = new ProgramRunner(logFilePath);
-            //вызов метода Run() объекта runner, который запускает основную логику приложения
             runner.Run();
         }
     }

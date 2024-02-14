@@ -2,18 +2,16 @@
 
 namespace Library_APP
 {
+    //основное меню приложения
     public class ProgramRunner
     {
-        //приватное поле _log, которое представляет интерфейс ILog
         private readonly ILog _log;
 
-        //конструктор принимающий путь к файлу журнала и создающий новый экземпляр FileLog, который реализует интерфейс ILog, для обработки журнала
         public ProgramRunner(string logFilePath)
         {
             _log = new FileLog(logFilePath);
         }
 
-        //метод инициализирующий репозитории книг, сортировки, записывающий сообщение о запуске программы в журнал и выводящий меню функций в консоль
         public void Run()
         {
             BooksRepository bookRepository = new BooksRepository(_log);
