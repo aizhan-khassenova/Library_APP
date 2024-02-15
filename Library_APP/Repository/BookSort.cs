@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Library_APP
@@ -24,7 +25,7 @@ namespace Library_APP
         }
 
         //вывод отсортированных книг
-        private void ViewSortedBooks(IOrderedEnumerable<Book> books)
+        private void ViewSortedBooks(IEnumerable<Book> books)
         {
             foreach (var book in books)
             {
