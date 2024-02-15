@@ -162,10 +162,28 @@ namespace Library_APP
 
             Console.WriteLine($"\nУдаляемая книга:\n");
             Console.WriteLine($"ID: {bookToDelete.Id}\nНазвание: {bookToDelete.Title}\nАвтор: {bookToDelete.Author}\nГод публикации: {bookToDelete.PubYear}");
-            books.Remove(bookToDelete);
-            string message = $"\nУспешно удалена книга с ID {idToDelete}!\n";
-            Console.WriteLine(message);
-            _log.Log(message);
+
+            Console.Write($"\nУдалить книгу с ID {idToDelete} [да/нет]? ");
+            string confirmation = Console.ReadLine().ToLower();
+
+            while (confirmation != "да" && confirmation != "нет")
+            {
+                Console.WriteLine("Некорректный ввод!");
+                Console.Write($"\nУдалить книгу с ID {idToDelete} [да/нет]? ");
+                confirmation = Console.ReadLine().ToLower();
+            }
+
+            if (confirmation == "да")
+            {
+                books.Remove(bookToDelete);
+                string message = $"\nУспешно удалена книга с ID {idToDelete}!\n";
+                Console.WriteLine(message);
+                _log.Log(message);
+            }
+            else
+            {
+                Console.WriteLine("\nУдаление отменено!\n");
+            }
         }
     }
 }
