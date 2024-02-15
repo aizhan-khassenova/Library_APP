@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Professional\\Desktop\\CISWTO\\Project\\Library_APP\\Library_APP\\Library_APP.csproj": {}
+    "C:\\Users\\Khassenova\\source\\repos\\Library_APP\\Library_APP\\Library_APP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Professional\\Desktop\\CISWTO\\Project\\Library_APP\\Library_APP\\Library_APP.csproj": {
+    "C:\\Users\\Khassenova\\source\\repos\\Library_APP\\Library_APP\\Library_APP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Professional\\Desktop\\CISWTO\\Project\\Library_APP\\Library_APP\\Library_APP.csproj",
+        "projectUniqueName": "C:\\Users\\Khassenova\\source\\repos\\Library_APP\\Library_APP\\Library_APP.csproj",
         "projectName": "Library_APP",
-        "projectPath": "C:\\Users\\Professional\\Desktop\\CISWTO\\Project\\Library_APP\\Library_APP\\Library_APP.csproj",
-        "packagesPath": "C:\\Users\\Professional\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Professional\\Desktop\\CISWTO\\Project\\Library_APP\\Library_APP\\obj\\",
+        "projectPath": "C:\\Users\\Khassenova\\source\\repos\\Library_APP\\Library_APP\\Library_APP.csproj",
+        "packagesPath": "C:\\Users\\Khassenova\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Khassenova\\source\\repos\\Library_APP\\Library_APP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Professional\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Khassenova\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,10 +1,9 @@
-﻿namespace Library_APP
+﻿using System;
+
+namespace Library_APP
 {
     public interface ISort
     {
-        public void SortById();
-        public void SortByTitle();
-        public void SortByAuthor();
-        public void SortByPubYear();
+        void Sort(Func<Book, object> keySelector, string sortBy);
     }
 }

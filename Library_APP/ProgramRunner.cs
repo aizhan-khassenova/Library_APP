@@ -72,16 +72,16 @@ namespace Library_APP
                             switch (inputSort)
                             {
                                 case "1":
-                                    sortRepository.SortById();
+                                    sortRepository.Sort(book => book.Id, "Id");
                                     break;
                                 case "2":
-                                    sortRepository.SortByTitle();
+                                    sortRepository.Sort(book => book.Title, "названию");
                                     break;
                                 case "3":
-                                    sortRepository.SortByAuthor();
+                                    sortRepository.Sort(book => book.Author, "автору");
                                     break;
                                 case "4":
-                                    sortRepository.SortByPubYear();
+                                    sortRepository.Sort(book => book.PubYear, "году публикации");
                                     break;
                                 case "0":
                                     sorted = false;

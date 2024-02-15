@@ -14,39 +14,12 @@ namespace Library_APP
             _bookRepository = bookRepository;
         }
 
-        //сортировка по ID
-        public void SortById()
+        //сортировка книг по параметру
+        public void Sort(Func<Book, object> keySelector, string sortBy)
         {
             var books = _bookRepository.books;
-            var sortedBooks = books.OrderBy(book => book.Id);
-            Console.WriteLine("\nСписок книг отсортированный по Id:\n");
-            ViewSortedBooks(sortedBooks);
-        }
-
-        //сортировка по названию книги
-        public void SortByTitle()
-        {
-            var books = _bookRepository.books;
-            var sortedBooks = books.OrderBy(book => book.Title);
-            Console.WriteLine("\nСписок книг отсортированный по названию:\n");
-            ViewSortedBooks(sortedBooks);
-        }
-
-        //сортировка по автору
-        public void SortByAuthor()
-        {
-            var books = _bookRepository.books;
-            var sortedBooks = books.OrderBy(book => book.Author);
-            Console.WriteLine("\nСписок книг отсортированный по автору:\n");
-            ViewSortedBooks(sortedBooks);
-        }
-
-        //сортировка по году публикации
-        public void SortByPubYear()
-        {
-            var books = _bookRepository.books;
-            var sortedBooks = books.OrderBy(book => book.PubYear);
-            Console.WriteLine("\nСписок книг отсортированный по году публикации:\n");
+            var sortedBooks = books.OrderBy(keySelector);
+            Console.WriteLine($"\nСписок книг отсортированный по {sortBy}:\n");
             ViewSortedBooks(sortedBooks);
         }
 
