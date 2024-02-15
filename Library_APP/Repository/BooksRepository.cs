@@ -70,9 +70,14 @@ namespace Library_APP
             int id = books.Count + 1;
             Book newBook = new Book { Id = id, Title = title, Author = author, PubYear = pubYear };
             books.Add(newBook);
-            //string message = $"\nУспешно добавлена книга с ID {id}!\n";
 
-            string message = $"\nДобавлена книга с ID {id}!\n\nДобавленная книга:\nID: {id}\nНазвание: {title}\nАвтор: {author}\nГод публикации: {pubYear}\n";
+            string message = $"\nДобавлена книга с ID {id}!\n\n" +
+                $"Добавленная книга:\n" +
+                $"ID: {id}\n" +
+                $"Название: {title}\n" +
+                $"Автор: {author}\n" +
+                $"Год публикации: {pubYear}\n";
+
             Console.WriteLine(message);
             _log.Log(message);
         }
@@ -139,7 +144,12 @@ namespace Library_APP
                 }
             }
 
-            string message = $"\nОбновлена книга с ID {bookToUpdate.Id}!\n\nОбновленная книга:\nID: {bookToUpdate.Id}\nНазвание: {bookToUpdate.Title}\nАвтор: {bookToUpdate.Author}\nГод публикации: {bookToUpdate.PubYear}\n";
+            string message = $"\nОбновлена книга с ID {bookToUpdate.Id}!\n\n" +
+                $"Обновленная книга:\nID: {bookToUpdate.Id}\n" +
+                $"Название: {bookToUpdate.Title}\n" +
+                $"Автор: {bookToUpdate.Author}\n" +
+                $"Год публикации: {bookToUpdate.PubYear}\n";
+
             Console.WriteLine(message);
             _log.Log(message);
         }
