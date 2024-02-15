@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Library_APP
 {
+    //класс для сортировки книг
+    //применена технология LINQ и паттерн проектирования Strategy
     public class BookSort : ISort
     {
         private readonly ILog _log;

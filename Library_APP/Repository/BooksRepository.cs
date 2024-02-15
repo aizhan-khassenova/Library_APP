@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Library_APP
 {
+    //класс BooksRepository реализует репозиторий книг
+    //применены технология LINQ и паттерны проектирования Repository и Command 
     public class BooksRepository : IBook
     {
         private readonly ILog _log;
@@ -162,7 +164,6 @@ namespace Library_APP
 
             Console.WriteLine($"\nУдаляемая книга:\n");
             Console.WriteLine($"ID: {bookToDelete.Id}\nНазвание: {bookToDelete.Title}\nАвтор: {bookToDelete.Author}\nГод публикации: {bookToDelete.PubYear}");
-
             Console.Write($"\nУдалить книгу с ID {idToDelete} [да/нет]? ");
             string confirmation = Console.ReadLine().ToLower();
 

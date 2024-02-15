@@ -5,6 +5,7 @@ namespace Library_APP
 {
     public class Program
     {
+        //применение паттерна проектирования Factory Method
         public static void Main(string[] args)
         {
             //создание пути к файлу журнала log.txt

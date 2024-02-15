@@ -2,21 +2,28 @@
 
 namespace Library_APP
 {
-    //основное меню приложения
+    //основной класс для управления программой
+    //применены принцип программирования Dependency Injection и паттерны проектирования Strategy, Factory Method
     public class ProgramRunner
     {
         private readonly ILog _log;
 
         public ProgramRunner(string logFilePath)
         {
+            //создание экземпляра FileLog для записи логов в файл
             _log = new FileLog(logFilePath);
         }
 
+        //метод для запуска программы и отображения главного меню
         public void Run()
         {
+            //создание репозитория книг
             BooksRepository bookRepository = new BooksRepository(_log);
+            //создание объекта для сортировки книг
             BookSort sortRepository = new BookSort(_log, bookRepository);
+            //запись в лог о запуске программы
             _log.Log("\nПрограмма запущена\n");
+            //отображение главного меню
             Console.WriteLine("\tБИБЛИОТЕКА\n");
             Console.WriteLine("Меню функций:");
             Console.WriteLine("1. Вывод списка книг");
@@ -26,6 +33,7 @@ namespace Library_APP
             Console.WriteLine("5. Сортировка книг");
             Console.Write("0. Закрыть программу\n\n");
 
+            //цикл для обработки выбора пользователем пунктов меню
             while (true)
             {
                 Console.WriteLine("________________________________");
@@ -64,6 +72,7 @@ namespace Library_APP
                         Console.WriteLine("4. Год публикации");
                         Console.WriteLine("0. Главное меню\n");
 
+                        //цикл для выбора критерия сортировки
                         while (sorted)
                         {
                             Console.Write("Введите пункт функции для выбора: ");
@@ -97,6 +106,7 @@ namespace Library_APP
                         break;
 
                     case "0":
+                        //запись в лог о завершении программы
                         _log.Log("\nПрограмма завершена\n");
                         return;
 
